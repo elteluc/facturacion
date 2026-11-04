@@ -1,0 +1,5 @@
+import { Bell, LogOut, Search, UserRound } from 'lucide-react';
+import type { Usuario } from '../types';
+export function Header({ titulo, usuario, onSalir }: { titulo: string; usuario?: Usuario; onSalir?: () => void }) {
+  return <header className="fact-header"><div className="fact-header__title"><span className="fact-header__eyebrow">ADMINISTRACIÓN</span><h1>{titulo}</h1></div><div className="fact-header__tools"><label className="fact-search fact-header__search"><Search size={16} /><input aria-label="Buscar en facturación" placeholder="Buscar en facturación" /></label><button className="fact-icon-button fact-header__notification" aria-label="Notificaciones"><Bell size={18} /><i /></button><div className="fact-user"><span className="fact-user__avatar"><UserRound size={18} /></span><span className="fact-user__name">{usuario?.nombre ?? 'Lucía Fernández'}<small>{usuario?.rol ?? 'Administradora'}</small></span></div>{onSalir && <button className="fact-icon-button" onClick={onSalir} aria-label="Salir del módulo" title="Salir"><LogOut size={17} /></button>}</div></header>;
+}
